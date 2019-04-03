@@ -11,7 +11,7 @@ function find() {
     return db('users').select('id', 'username', 'password', 'department')
 }
 
-function findBy() {
+function findBy(filter) {
     return db('users').where(filter)
 }
 
@@ -23,6 +23,6 @@ async function add(user) {
 
 function findById(id) {
     return db('users')
-        .where({ id})
+        .where({ id })
         .first()
 }
