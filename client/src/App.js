@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import { Route, NavLink, withRouter } from 'react-router-dom'
+import { Navbar, Button, Container } from 'reactstrap';
 
-import './App.css';
 import Users from './users/Users'
 import Login from './login/Login'
 import Signup from './signup/Signup'
+
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-         <nav>
-           <NavLink to="/login">Login</NavLink>
+         <Navbar color="dark" expand="lrg" className="link">
+           <NavLink to="/login" className="link">Login</NavLink>
            &nbsp;|&nbsp;
-           <NavLink to="/users">Users</NavLink>
+           <NavLink to="/users" className="link">Users</NavLink>
            &nbsp;|&nbsp;
-           <NavLink to="/signup">SignUp</NavLink>
+           <NavLink to="/signup" className="link">SignUp</NavLink>
            &nbsp;|&nbsp;
-           <button onClick={this.logout}>Logout</button>
-         </nav>
+           <Button onClick={this.logout}>Logout</Button>
+         </Navbar>
          <header>
-           <main>
+           <Container>
              <Route path="/login" component={Login} />
              <Route path="/users" component={Users} />
              <Route path="/signup" component ={Signup} />
-           </main>
+           </Container>
          </header>
       </div>
     );
